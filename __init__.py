@@ -42,8 +42,12 @@ if module == "connect":
     slack_token = GetParams("slack_token")
     res = GetParams("res")
     try:
-        slack_service_ = SlackService(slack_token)
-        SetVar(res, True)
+        slack_service_ = None
+        if slack_token:
+            slack_service_ = SlackService(slack_token)
+            SetVar(res, True)
+        if slack_token == None:
+            SetVar(res, False)
     except Exception as e:
         SetVar(res, False)
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")

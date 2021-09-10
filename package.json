@@ -51,6 +51,7 @@
             "es": "Resultado",
             "en": "Result"
           },
+          "remove_vars": true,
           "id": "res",
           "css": "col-md-12"
         }
