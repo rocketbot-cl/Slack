@@ -56,7 +56,10 @@ if module == "send_message":
     res = GetParams("res")
     try:
         res_status_code = slack_service_.post_message(channel, text)
-        SetVar(res, res_status_code)
+        if res_status_code == 200:   
+            SetVar(res, True)
+        if res_status_code != 200:   
+            SetVar(res, False)    
     except Exception as e:
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
