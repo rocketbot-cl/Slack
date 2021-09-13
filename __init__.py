@@ -65,6 +65,7 @@ if module == "send_message":
         if res_status_code != 200:   
             SetVar(res, False)    
     except Exception as e:
+        SetVar(res, False)
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
