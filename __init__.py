@@ -46,6 +46,8 @@ if module == "connect":
         if slack_token:
             slack_service_ = SlackService(slack_token)
             SetVar(res, True)
+        else:
+            SetVar(res, False)
         if slack_token == None:
             SetVar(res, False)
     except Exception as e:
