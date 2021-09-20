@@ -176,14 +176,14 @@
     },
     {
       "en": {
-        "title": "Listen channel",
-        "description": "Listen for a channel and wait a response",
+        "title": "Listen channels",
+        "description": "Listen for all channel and wait a response",
         "title_options": "Select Option",
         "options": null
       },
       "es": {
-        "title": "Escuchar un canal",
-        "description": "Escucha un canal y espera una respuesta",
+        "title": "Escuchar todos los canales",
+        "description": "Escucha todos los canales y espera una respuesta",
         "title_options": "Seleccione una opción",
         "options": null
       },

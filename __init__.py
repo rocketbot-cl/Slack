@@ -98,7 +98,7 @@ if module == "listen_channel":
     res = GetParams("res")
     try:
         rtm_client = None
-        rtm_client = RTMClient(token="xoxb-2425917630453-2436304297300-mqWaBb7VNAToVQY0FhyhbQnq")
+        rtm_client = RTMClient(token=slack_service_.slack_token)
         print("Listening workspace")
         try:
             message = None
