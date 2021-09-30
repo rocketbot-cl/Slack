@@ -10,6 +10,7 @@
   "mac": true,
   "docker": false,
   "name": "Slack",
+  "type": "module",
   "dependencies": {
   },
   "title": {
@@ -21,7 +22,7 @@
     {
     "en": {
       "title": "Connect with Slack",
-      "description": "Connect with Slack",
+      "description": "Connect to your Slack App using your Bot Token",
       "title_options": "Select Option",
       "options": null
     },
@@ -41,6 +42,7 @@
             "es": "Token",
             "en": "Token"
           },
+          "description": "You have to put your Bot Token here",
           "id": "slack_token",
           "css": "col-md-12"
         },
@@ -51,6 +53,7 @@
             "es": "Resultado",
             "en": "Result"
           },
+          "description": "Return True if the connection was succesful, in other case return False",
           "remove_vars": true,
           "id": "res",
           "css": "col-md-12"
@@ -93,6 +96,7 @@
               "es": "ID del canal",
               "en": "Channel ID"
             },
+            "description": "You have to put the ID channel",
             "id": "channel_id",
             "css": "col-md-6"
           },
@@ -103,6 +107,7 @@
               "es": "Mensaje",
               "en": "Message"
             },
+            "description": "In this input you have to put the message that you want to send",
             "id": "message",
             "css": "col-md-6"
           },
@@ -113,6 +118,7 @@
               "es": "Resultado",
               "en": "Result"
             },
+            "description": "Return True if the connection was succesful, in other case return False",
             "remove_vars": true,
             "id": "res",
             "css": "col-md-12"
@@ -155,6 +161,7 @@
               "es": "Resultado",
               "en": "Result"
             },
+            "description": "Return all the channels that exist in workspace",
             "remove_vars": true,
             "id": "res",
             "css": "col-md-6"
@@ -197,6 +204,7 @@
               "es": "Resultado",
               "en": "Result"
             },
+            "description": "Return information about the message that we have catched.",
             "remove_vars": true,
             "id": "res",
             "css": "col-md-12"
