@@ -2,7 +2,7 @@ import requests
 from slack import RTMClient
 from slack import WebClient
 from slack.errors import SlackApiError
-
+import os
 
 def get_channel_info(channel):
     channel_info = {
@@ -27,6 +27,19 @@ class SlackService:
             return response.status_code
         except SlackApiError as e:
             raise e
+    
+    def post_message_with_image(self, channel: str, text: str, image_path: str) -> int:
+        try:
+            with open(image_path, 'rb') as image_content:
+                response = self.slack_client.files_upload(
+                    channels = channel,
+                    content = image_content.read(),
+                    filename = image_path.split(os.sep)[-1],
+                    initial_comment = text
+                )
+            return response.status_code
+        except SlackApiError as e:
+            raise e
 
     def list_channels(self, types : str) -> list:
         response = self.slack_client.conversations_list(types=types)
@@ -38,9 +51,8 @@ class SlackService:
 if __name__ == '__main__':
     slack_service = SlackService('xoxb-2425917630453-2436304297300-mqWaBb7VNAToVQY0FhyhbQnq')
     try:
-        print("empezando uwu")
-        slack_service.rtm_client.start()
-        print("Terminado 7u7")
+        list_channels = slack_service.list_channels('public')
+        print()
     except Exception as err:
         print(err)
 

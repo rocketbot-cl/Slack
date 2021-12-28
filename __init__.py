@@ -72,6 +72,24 @@ if module == "send_message":
         PrintException()
         raise e
 
+if module == "upload_file":
+    channel = GetParams("channel_id")
+    text = GetParams("message")
+    image = GetParams("image")
+    res = GetParams("res")
+    try:
+        status = slack_service_.post_message_with_image(channel, text, image)
+        print('Status code: ' + str(res_status_code))
+        if res_status_code == 200:   
+            SetVar(res, True)
+        if res_status_code != 200:   
+            SetVar(res, False)    
+    except Exception as e:
+        SetVar(res, False)
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+
 if module == "list_channels":
     res = GetParams("res")
     try:
