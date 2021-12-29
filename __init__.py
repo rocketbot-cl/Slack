@@ -78,7 +78,7 @@ if module == "upload_file":
     image = GetParams("image")
     res = GetParams("res")
     try:
-        status = slack_service_.post_message_with_image(channel, text, image)
+        res_status_code = slack_service_.post_message_with_image(channel, text, image)
         print('Status code: ' + str(res_status_code))
         if res_status_code == 200:   
             SetVar(res, True)
