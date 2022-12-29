@@ -1,57 +1,65 @@
-
-
-
-
 # Slack
   
-Connect with Slack, send a listen messages  
+Module to connect with Slack  
   
-![banner](/docs/imgs/Banner_Slack.png)
-## Como instalar este módulo
+![banner](imgs/Banner_Slack.png)
+## How to install this module
   
-__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de rocketbot.  
+__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
 
 
 
-## Descripción de los comandos
-
-### Conectar con Slack
+## How to use this module
   
-Conectar con Slack
-|Parámetros|Descripción|ejemplo|
+To make use of the commands, we must first connect to Slack. 
+1. We will connect to our workspace in the web browser and then we will enter the following link https://api.slack.com/apps?new_classic_app=1
+2. We will write a name for our app and then choose the workspace in which it will be used. We accept.
+3. We will go to the OAuth & Permissions tab and then we will focus on the Scopes section.
+4. We click on the Add an OAuth Scope button and we will add permissions so that it looks like this: chat:write:bot, chat:write:user, files:write.
+5. Then further up in OAuth Tokens for Your Workspace we have to install the app in our Workspace. We accept all the permissions and continue.
+6. Finally, we have to invite the app in our channel and we can use the commands normally.
+7. In case you have added new permissions after these steps, you must reinstall the app in the workspace.
+
+
+## Description of the commands
+
+### Connect with Slack
+  
+Connect to your Slack App using your Bot Token
+|Parameters|Description|example|
 | --- | --- | --- |
 |Token|You have to put your Bot Token here|xoxb-xxxxxxx-xxxxxxx-xxxxxxxxxx|
-|Resultado|Return True if the connection was succesful, in other case return False|result|
+|Result|Returns True if the connection was succesful, in other case return False|result|
 
-### Enviar mensaje
+### Send message
   
-Envia un mensaje a un canal
-|Parámetros|Descripción|ejemplo|
+Send a message to a channel
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID del canal|You have to put the ID channel|C10000|
-|Mensaje|In this input you have to put the message that you want to send|Hola!|
-|Resultado|Return True if the connection was succesful, in other case return False|result|
+|Channel ID|You have to put the ID channel|C10000|
+|Message|In this input you have to put the message that you want to send|Hola!|
+|Result|Returns True if it was succesful, in other case return False|result|
 
-### Listar canales
+### List channels
   
-Lista todos los canales con id y nombre
-|Parámetros|Descripción|ejemplo|
+List all the channels with id and name
+|Parameters|Description|example|
 | --- | --- | --- |
-|Resultado|Return all the channels that exist in workspace|result|
+|Result|Returns every channel that exists in workspace|result|
 
-### Escuchar todos los canales
+### Listen channels
   
-Escucha todos los canales y espera una respuesta
-|Parámetros|Descripción|ejemplo|
+Listen for all channel and wait a response
+|Parameters|Description|example|
 | --- | --- | --- |
-|Resultado|Return information about the message that we have catched.|result|
+|Result|Returns information about the message that we have catched.|result|
 
-### Subir archivo
+### Upload file
   
-Sube un archivo a un canal con un mensaje
-|Parámetros|Descripción|ejemplo|
+Upload a file to a channel with a message
+|Parameters|Description|example|
 | --- | --- | --- |
-|ID del canal|Tienes que poner el ID del canal|C10000|
-|Mensaje|En esta caja de texto tienes que poner el mensaje que quieres enviar|Hola!|
-|Seleccionar un archivo|Ruta donde está el archivo|Ruta a archivo|
-|Resultado|Devuelve True si la conexión fue exitosa, en otro caso devuelve False|result|
+|Channel ID|You have to put the ID channel|C10000|
+|Message|In this input you have to put the message that you want to send|Hola!|
+|Select a file|Path where the file is|Path to file|
+|Result|Returns True if it was succesful, in other case return False|result|
