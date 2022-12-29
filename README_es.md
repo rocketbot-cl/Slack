@@ -1,31 +1,27 @@
-
-
-
-
 # Slack
   
 Connect with Slack, send a listen messages  
 
-## How to install this module
+## Como instalar este módulo
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
+__Descarga__ e __instala__ el contenido en la carpeta 'modules' en la ruta de Rocketbot.  
 
 
 
 ## Overview
 
 
-1. Connect with Slack  
-Connect to your Slack App using your Bot Token
+1. Conectar con Slack  
+Conéctese a su aplicación de Slack con su Bot Token
 
-2. Send message  
-Send a message to a channel
+2. Enviar mensaje  
+Envia un mensaje a un canal
 
-3. List channels  
-List all the channels with id and name
+3. Listar canales  
+Lista todos los canales con id y nombre
 
-4. Listen channels  
-Listen for all channel and wait a response  
+4. Escuchar todos los canales  
+Escucha todos los canales y espera una respuesta  
 
 
 
