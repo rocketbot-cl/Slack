@@ -30,6 +30,7 @@ if cur_path not in sys.path:
     sys.path.append(cur_path)
 
 from slack import RTMClient
+from slack import WebClient
 from slack_service import SlackService
 
 """
@@ -94,6 +95,7 @@ if module == "list_channels":
     res = GetParams("res")
     try:
         list_channels = slack_service_.list_channels('public_channel')
+        #list_channels = slack_service_.list_channels('private_channel')
         SetVar(res, list_channels)
     except Exception as e:
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
@@ -132,3 +134,22 @@ if module == "listen_channel":
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
+    
+if module == "inviteUsers":
+    channel = GetParams("channel_id1")
+    users = GetParams("users")
+    res = GetParams("res1")
+    try:
+        client = WebClient(token=slack_service_.slack_token)
+        print(client)
+        res_status_code = client.conversations_invite(channel=channel, users=users)
+        if res_status_code == 200:   
+            SetVar(res, True)
+        if res_status_code != 200:   
+            SetVar(res, False)    
+    except Exception as e:
+        SetVar(res, False)
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+    
