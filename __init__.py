@@ -141,11 +141,11 @@ if module == "inviteUsers":
     res = GetParams("res1")
     try:
         client = WebClient(token=slack_service_.slack_token)
-        print(client)
         res_status_code = client.conversations_invite(channel=channel, users=users)
-        if res_status_code == 200:   
+        print(res_status_code)
+        if res_status_code['ok']:   
             SetVar(res, True)
-        if res_status_code != 200:   
+        else:   
             SetVar(res, False)    
     except Exception as e:
         SetVar(res, False)
