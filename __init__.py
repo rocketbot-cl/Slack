@@ -30,6 +30,7 @@ if cur_path not in sys.path:
     sys.path.append(cur_path)
 
 from slack import RTMClient
+from slack import WebClient
 from slack_service import SlackService
 
 """
@@ -72,10 +73,29 @@ if module == "send_message":
         PrintException()
         raise e
 
+if module == "upload_file":
+    channel = GetParams("channel_id")
+    text = GetParams("message")
+    image = GetParams("image")
+    res = GetParams("res")
+    try:
+        res_status_code = slack_service_.post_message_with_image(channel, text, image)
+        print('Status code: ' + str(res_status_code))
+        if res_status_code == 200:   
+            SetVar(res, True)
+        if res_status_code != 200:   
+            SetVar(res, False)    
+    except Exception as e:
+        SetVar(res, False)
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+
 if module == "list_channels":
     res = GetParams("res")
     try:
         list_channels = slack_service_.list_channels('public_channel')
+        #list_channels = slack_service_.list_channels('private_channel')
         SetVar(res, list_channels)
     except Exception as e:
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
@@ -114,3 +134,22 @@ if module == "listen_channel":
         print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
         PrintException()
         raise e
+    
+if module == "inviteUsers":
+    channel = GetParams("channel_id1")
+    users = GetParams("users")
+    res = GetParams("res1")
+    try:
+        client = WebClient(token=slack_service_.slack_token)
+        res_status_code = client.conversations_invite(channel=channel, users=users)
+        print(res_status_code)
+        if res_status_code['ok']:   
+            SetVar(res, True)
+        else:   
+            SetVar(res, False)    
+    except Exception as e:
+        SetVar(res, False)
+        print("\x1B[" + "31;40mAn error occurred\x1B[" + "0m")
+        PrintException()
+        raise e
+    
